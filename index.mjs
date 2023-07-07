@@ -2,9 +2,10 @@
 /* eslint-disable no-undef */
 
 // TODOS:
-// get cookie/sessionID for command from command 
-// option to use cached cookie 
-// add spinner 
+// get cookie/sessionID for command from command [done]
+// option to use cached cookie [done]
+// add spinner [done]
+// fix caching
 
 import { argv } from "zx"
 import curl from "./src/curl.js"

@@ -5,8 +5,14 @@ let db = new JsonDB(new Config("cache", true, false, "/"))
 export default class Cache {
 
     async get() {
-        let value = await db.getData("/cache")
-        return value;
+        try {
+            let value = await db.getData("/cache")
+            return value
+        }
+        catch{
+            console.log("no value found in cache")
+            return false
+        }
     }
 
     async create(value) {
@@ -14,14 +20,8 @@ export default class Cache {
         console.log("session ID successfully cached locally")
     }
 
-    async validate(value) {
-        if (value === null) {
-            console.log("session id not provided")
-        }
-        else {
-            console.log("session id provided")
-            return true
-        }
+    async check(value) {
+        await db.exists("cache")
     }
 
 }

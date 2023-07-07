@@ -5,17 +5,31 @@ import Cache from "../db/query.js";
 let cache = new Cache()
 
 export default async function curl(day, year, cookie) {
-    // part 1: validating parameteres and handling caching
-    const keyIsValid = cache.validate(cookie)
 
-    if (!keyIsValid) return; // key not provided and not found in cache
-    console.log("Some cookie recieved, not sure if its correct, starting the downloading process")
-    cache.create(cookie)
+    if (cookie != null) {
+        console.log("Some cookie recieved, not sure if its correct, starting the downloading process")
+        cache.create(cookie)
 
-    await spinner(() => $`curl --request GET \
+        await spinner(() => $`curl --request GET \
     --url 'https://adventofcode.com/20${year}/day/${day}/input' \
     --header ${cookie} -o input.txt`)
+    process.exit(1);
+    }
 
-    // console.log(cookie)
+    if (cookie === null) {
+        console.log("cookie not provided, using cache")
+        cookie = cache.get()
 
+        if (cookie === false) {
+            console.log('cookie not given and not found in cache, aborting process')
+            process.exit(0)
+        }
+
+        else {
+            await spinner(() => $`curl --request GET \
+    --url 'https://adventofcode.com/20${year}/day/${day}/input' \
+    --header ${cookie} -o input.txt`)
+        }
+
+    }
 }
