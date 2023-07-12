@@ -36,9 +36,9 @@ console.log({ day, year })
 
 
 // example input without cached creds
-// zx index.mjs d1y21 asldkfjei2304851ecmnxaoiewfcep
+// ./index.mjs d1y21 asldkfjei2304851ecmnxaoiewfcep
 // with cache
-// zx index.mjs d1y21 
+// ./index.mjs d1y21 
 
 // after parsing it becomes [date, sessionID]
 
@@ -47,6 +47,8 @@ switch (args[1]) { //check for sessionID (second argument)
     case undefined:
         // no sessionID provided
         await curl(day, year, null)
+        console.clear()
+        console.log("done :3 look in input.txt")
         break;
 
     default:
@@ -55,5 +57,7 @@ switch (args[1]) { //check for sessionID (second argument)
         console.log(cookieValue)
 
         await curl(day, year, "Cookie: " + cookieValue)
+        console.clear()
+        console.log("done :3 look in input.txt")
         break;
 }

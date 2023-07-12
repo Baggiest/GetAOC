@@ -1,7 +1,7 @@
 {
-  "name": "inputgetter",
+  "name": "getaoc",
   "version": "1.0.0",
-  "description": "",
+  "description": "Get your AOC input super easy and quick",
   "main": "index.mjs",
   "scripts": {
     "start": "zx ./index.mjs",
