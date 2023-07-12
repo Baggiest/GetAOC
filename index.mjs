@@ -20,18 +20,17 @@ import curl from "./src/curl.js"
 let args = argv._.slice(1)
 let date = args[0]
 
-console.log({args, date})
+console.log({ args, date })
 
 
-let day = date.split('y')[0].replace('d','')
+let day = date.split('y')[0].replace('d', '')
 let year = date.split('y')[1]
 
-console.log({day, year})
+console.log({ day, year })
 
 // a little hacky implementation cause im not paid
 // it takes d1y21 turns it into [d1, 21]
 // the replace is there to make it [1, 21]
-
 
 
 // example input without cached creds
@@ -43,14 +42,17 @@ console.log({day, year})
 
 switch (args[1]) { //check for sessionID (second argument)
 
-    case undefined: // no sessionID provided
+    case undefined:
+        // no sessionID provided
         await curl(day, year, null)
         break;
 
-    default: // sessionID is provided
-        let cookie = args[1].replace("'", "")
-        console.log(cookie)
+    default:
+        // sessionID is provided
+        let cookieValue = args[1].replace("'", "")
+        console.log(cookieValue)
         
-        await curl(day, year, cookie) 
+
+        await curl(day, year, "Cookie: " + cookieValue)
         break;
 }

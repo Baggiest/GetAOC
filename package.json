@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "zx ./index.mjs"
+    "start": "zx ./index.mjs",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [],
   "type": "module",
@@ -16,5 +17,10 @@
     "node-json-db": "^2.2.0",
     "zx": "^7.2.2"
   },
-  "bin": "./index.mjs"
+  "bin": {
+    "getaoc": "./index.mjs"
+  },
+  "devDependencies": {
+    "vitest": "^0.33.0"
+  }
 }
