@@ -18,7 +18,7 @@ export default class Cache {
     }
 
     async create(value) {
-        await db.push("/cache", value);
+        await db.push("/cache", value)
         console.log("session ID successfully cached locally")
         return true;
     }
@@ -27,4 +27,7 @@ export default class Cache {
         return await db.exists(`cache/${value}`)
     }
 
+    async reload() {
+        db.reload()
+    }
 }

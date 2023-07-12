@@ -9,9 +9,12 @@
 
 import { argv } from "zx"
 import curl from "./src/curl.js"
+import Cache from "./db/query.js"
 
-// import Cache from "./db/query.js"
-// const cache = new Cache()
+// let cache = new Cache()
+// init database
+// cache.create("");
+
 
 // input: ./index.mjs balls
 // output: ['index.mjs', 'balls']
@@ -21,7 +24,6 @@ let args = argv._.slice(1)
 let date = args[0]
 
 console.log({ args, date })
-
 
 let day = date.split('y')[0].replace('d', '')
 let year = date.split('y')[1]
@@ -51,7 +53,6 @@ switch (args[1]) { //check for sessionID (second argument)
         // sessionID is provided
         let cookieValue = args[1].replace("'", "")
         console.log(cookieValue)
-        
 
         await curl(day, year, "Cookie: " + cookieValue)
         break;

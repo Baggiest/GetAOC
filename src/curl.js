@@ -19,7 +19,7 @@ export default async function curl(day, year, cookie) {
     if (cookie === null) {
         
         console.log("cookie not provided, using cache")
-        let cachedCookie = cache.get()
+        let cachedCookie = await cache.get()
 
         if (cachedCookie === false) {
             console.log('cookie not given and not found in cache, aborting process')
@@ -29,7 +29,7 @@ export default async function curl(day, year, cookie) {
         else {
             await spinner(() => $`curl --request GET \
     --url 'https://adventofcode.com/20${year}/day/${day}/input' \
-    --header ${cookie} -o input.txt`)
+    --header ${cachedCookie} -o input.txt`)
         }
 
     }
