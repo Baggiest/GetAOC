@@ -9,11 +9,6 @@
 
 import { argv } from "zx"
 import curl from "./src/curl.js"
-import Cache from "./db/query.js"
-
-// let cache = new Cache()
-// init database
-// cache.create("");
 
 
 // input: ./index.mjs balls
@@ -45,19 +40,19 @@ console.log({ day, year })
 switch (args[1]) { //check for sessionID (second argument)
 
     case undefined:
-        // no sessionID provided
+        // Cookie isn't provided
         await curl(day, year, null)
         console.clear()
         console.log("done :3 look in input.txt")
-        break;
-
+        process.exit(0)
+        
     default:
-        // sessionID is provided
+        // Cookie is provided
         let cookieValue = args[1].replace("'", "")
         console.log(cookieValue)
 
         await curl(day, year, "Cookie: " + cookieValue)
         console.clear()
         console.log("done :3 look in input.txt")
-        break;
+        process.exit(0)
 }
