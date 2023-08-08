@@ -17,14 +17,23 @@ export default class Cache {
         }
     }
 
-    async create(value) {
+    async destroy() {
+        await db.delete("/cache");
+        console.log("cache cleared successfully")
+    }
+
+    async create(value: string) {
         await db.push("/cache", value)
-        console.log("session ID successfully cached locally")
+        console.log("Cookie successfully cached locally")
         return true;
     }
 
-    async check(value) {
-        return await db.exists(`cache/${value}`)
+    // async check(value) {
+    //     return await db.exists(`/cache/${value}`)
+    // }
+
+    async exists() {
+        return await db.exists('/cache')
     }
 
     async reload() {

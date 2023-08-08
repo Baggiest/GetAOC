@@ -1,6 +1,6 @@
 /data
-*.txt
-
+cache.json
+/dist/*
 # Logs
 logs
 *.log
@@ -87,5 +87,3 @@ typings/
 # pm2
 .pm2
 .pm2.bak
-cache.json
-input.txt

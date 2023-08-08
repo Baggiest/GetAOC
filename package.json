@@ -1,26 +1,31 @@
 {
   "name": "getaoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get your AOC input super easy and quick",
-  "main": "index.mjs",
+  "main": "index.ts",
   "scripts": {
-    "start": "zx ./index.mjs",
+    "start": "ts-node ./index.ts",
+    "build": "tsc",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
   "keywords": [],
-  "type": "module",
-  "author": "",
+  "author": "Baggie",
   "license": "ISC",
   "dependencies": {
+    "@inquirer/prompts": "^3.0.2",
+    "@types/node": "^20.4.8",
+    "axios": "^1.4.0",
     "dotenv": "^16.3.1",
-    "node-json-db": "^2.2.0",
-    "zx": "^7.2.2"
+    "inquirer": "^9.2.10",
+    "node-fetch": "^3.3.2",
+    "node-json-db": "^2.2.0"
   },
   "bin": {
-    "getaoc": "./index.mjs"
+    "getaoc": "./dist/index.js"
   },
   "devDependencies": {
+    "typescript": "5.2.0-dev.20230807",
     "vitest": "^0.33.0"
   }
 }
