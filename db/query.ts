@@ -1,5 +1,6 @@
 import { JsonDB, Config } from "node-json-db";
 
+
 let db = new JsonDB(new Config("cache", true, false, "/"))
 
 export default class Cache {
