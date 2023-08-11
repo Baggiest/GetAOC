@@ -1,4 +1,4 @@
-
+#! /usr/bin/env node
 /* eslint-disable no-undef */
 
 // TODOS:
@@ -43,6 +43,7 @@ let year = date.split('y')[1]
 async function bootstrap() {
 
     let cookieExists: boolean = await cache.exists();
+    
 
     if (args[2] === "--no-cache") { cookieExists = false }
     if (args[2] === "--clear-cache") { cache.destroy() }
@@ -59,15 +60,15 @@ async function bootstrap() {
     }
 
     if (cookieExists === false) {
-        
+
         console.log("No cookie found in cache")
-        
+
         // inquirer thing
         let cookie = await getInput() // retrieve from cache
 
         // cache the cookie
-        cache.create(cookie) 
-        
+        cache.create(cookie)
+
         // do the main thing / fetching the input.txt from URL
         fetch(day, year, cookie);
     }

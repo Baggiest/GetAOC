@@ -2,9 +2,12 @@ import { test, expect } from "vitest"
 import Cache from "./query.js";
 
 let cache = new Cache()
+let testValue = "balls"
+let oldValue: string;
 
-let oldValue = await cache.get()
-let testValue = "balls";
+async function setValues() { oldValue = await cache.get() }
+
+setValues()
 
 test("Creating a cache record", async () => {
     expect(await cache.create(testValue)).toBe(true);

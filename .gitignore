@@ -1,6 +1,6 @@
 /data
 cache.json
-/dist/*
+/dist/
 # Logs
 logs
 *.log

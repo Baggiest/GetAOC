@@ -1,6 +1,6 @@
 {
   "name": "getaoc",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Get your AOC input super easy and quick",
   "main": "index.ts",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "Baggie",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@inquirer/prompts": "^3.0.2",
     "@types/node": "^20.4.8",

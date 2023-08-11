@@ -13,6 +13,7 @@ export default async function fetch(day: string, year: string, cookie: string) {
 
         let result = res.data;
         await output(result).then(() => {
+            console.clear()
             console.log("Done :3 Look in input.txt")
         })
     })
